@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'https://job-portal-taupe-five.vercel.app/',
+    origin:'https://job-portal-kzws.onrender.com/',
     credentials:true
 }
 
