@@ -22,10 +22,20 @@ const _dirname = path.resolve();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-const corsOptions = {
-    origin:'https://job-portal-kzws.onrender.com/',
-    credentials:true
-}
+
+
+// List of allowed origins
+const allowedOrigins = ['https://job-portal-kzws.onrender.com/', 'http://localhost:5173/', 'http://localhost:8000/'];
+
+// Custom CORS middleware
+const corsOptions = (req, callback) => {
+  const origin = req.header('Origin');
+  if (allowedOrigins.includes(origin)) {
+    callback(null, { origin: true }); // Allow this origin
+  } else {
+    callback(null, { origin: false }); // Deny this origin
+  }
+};
 
 app.use(cors(corsOptions));
 
