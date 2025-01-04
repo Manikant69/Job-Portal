@@ -29,12 +29,12 @@ const allowedOrigins = ['https://job-portal-kzws.onrender.com/', 'http://localho
 
 // Custom CORS middleware
 const corsOptions = (req, callback) => {
-  const origin = req.header('Origin');
-  if (allowedOrigins.includes(origin)) {
-    callback(null, { origin: true }); // Allow this origin
-  } else {
-    callback(null, { origin: false }); // Deny this origin
-  }
+    const origin = req.header('Origin');
+    if (allowedOrigins.includes(origin)) {
+      callback(null, { origin: true, credentials: true }); // Allow this origin and credentials
+    } else {
+      callback(null, { origin: false }); // Deny this origin
+    }
 };
 
 app.use(cors(corsOptions));
