@@ -1,41 +1,31 @@
-import React, { useState } from 'react'
-import { Button } from './ui/button'
-import { Search } from 'lucide-react'
-import { useDispatch } from 'react-redux';
-import { setSearchedQuery } from '@/redux/jobSlice';
-import { useNavigate } from 'react-router-dom';
+import SearchBar from "./SearchBar";
 
-const HeroSection = () => {
-    const [query, setQuery] = useState("");
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const searchJobHandler = () => {
-        dispatch(setSearchedQuery(query));
-        navigate("/browse");
-    }
-
+function HeroSection() {
     return (
-        <div className='text-center'>
-            <div className='flex flex-col gap-5 my-10'>
-                <span className=' mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium'>No. 1 Job Hunt Website</span>
-                <h1 className='text-5xl font-bold'>Search, Apply & <br /> Get Your <span className='text-[#6A38C2]'>Dream Jobs</span></h1>
-                <p className='font-semibold'>Whether you're a job seeker looking for new opportunities or a recruiter searching for top talent,<br/> our platform connects you with the right people, fast.</p>
-                <div className='flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto'>
-                    <input
-                        type="text"
-                        placeholder='Find your dream jobs'
-                        onChange={(e) => setQuery(e.target.value)}
-                        className='outline-none border-none w-full'
-
-                    />
-                    <Button onClick={searchJobHandler} className="rounded-r-full bg-[#6A38C2]">
-                        <Search className='h-5 w-5' />
-                    </Button>
-                </div>
-            </div>
+      <div className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-purple-800 to-purple-500 opacity-90">
+          <div className="absolute inset-0 bg-[url('./heroPhoto.avif')] mix-blend-overlay opacity-20"></div>
         </div>
-    )
+  
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white/10 backdrop-blur-sm text-white inline-block px-4 py-1 rounded-full mb-4">
+            <span className="font-medium">No. 1 Job Hunt Website</span>
+          </div>
+          
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-white">
+            Search, Apply & <br />
+            Get Your <span className="text-orange-400">Dream Jobs</span>
+          </h1>
+          
+          <p className="text-gray-200 mb-8 max-w-2xl mx-auto text-lg">
+            Whether you're a job seeker looking for new opportunities or a recruiter searching for top talent,
+            our platform connects you with the right people, fast.
+          </p>
+          
+          <SearchBar />
+        </div>
+      </div>
+    );
 }
 
-export default HeroSection
+export default HeroSection;
