@@ -37,7 +37,7 @@ const Job = ({job}) => {
 
             <div>
                 <h1 className='font-bold text-lg my-2'>{job?.title}</h1>
-                <p className='text-sm text-gray-600'>{job?.description}</p>
+                <p className='text-sm text-gray-600'>{job?.description.slice(0,400)}</p>
             </div>
             <div className='flex items-center gap-2 mt-4'>
                 <Badge className={'text-blue-700 font-bold'} variant="ghost">{job?.position} Positions</Badge>

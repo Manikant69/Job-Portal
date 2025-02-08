@@ -44,7 +44,7 @@ const Jobs = () => {
                                                 exit={{ opacity: 0, x: -100 }}
                                                 transition={{ duration: 0.3 }}
                                                 key={job?._id}>
-                                                <Job job={job} />
+                                                <Job key={job?._id} job={job} />
                                             </motion.div>
                                         ))
                                     }

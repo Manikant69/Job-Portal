@@ -13,7 +13,7 @@ function HeroSection() {
           </div>
           
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-white">
-            Get, Apply & <br />
+            Search, Apply & <br />
             Get Your <span className="text-orange-400">Dream Jobs</span>
           </h1>
           
